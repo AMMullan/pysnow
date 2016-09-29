@@ -35,6 +35,9 @@ Basic usage
    # Create a `Request` object by querying for 'INC01234' on table 'incident'
    r = s.query(table='incident', query={'number': 'INC01234'})
 
+   # Create a `Request` object, using advanced ServiceNow queries, to perform more advanced queries.
+   r = s.query(table='incident', query='number=INC01234^state!=1')
+   
    # Fetch one record and filter out everything but 'number' and 'sys_id' from the results
    r.get_one(fields=['number', 'sys_id'])
 
